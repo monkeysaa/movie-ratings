@@ -1,0 +1,48 @@
+"""CRUD operations."""
+
+from model import db, User, Movie, Rating, connect_to_db
+
+             
+def create_user(email, password):
+    """Create and return a new user."""
+
+    user = User(email=email, password=password)
+
+    db.session.add(user)
+    db.session.commit()
+
+    return user
+
+# We didn't use release_date since datetime was causing us problems
+def create_movie(title, overview, poster_path):
+    """Create and return a new movie."""
+
+    movie = Movie(title = title, overview = overview, poster_path = poster_path)
+
+    db.session.add(movie)
+    db.session.commit()
+
+    return movie
+
+def create_rating(user, movie, score):
+    """Create and return a movie rating."""
+
+    rating = Rating(user = user, movie = movie, score = score)
+
+    db.session.add(rating)
+    db.session.commit()
+
+    return rating
+
+
+
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    from server import app
+    connect_to_db(app)
