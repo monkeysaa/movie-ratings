@@ -26,7 +26,7 @@ for movie in movie_data:
     title = movie["title"]
     overview = movie["overview"]
     poster_path = movie["poster_path"]
-
+   
     # We aren't actually using release_date since datetime was causing us problems,
     # the stuff below is just for practice, but won't be passed.
     not_release_date = movie["release_date"]
@@ -57,7 +57,8 @@ for n in range(10):
 
         rating = crud.create_rating(db_user, random_movie, random_score)
         ratings_in_db.append(rating)
-    print(rating)
+    #print(rating)
+
 
 
 
